@@ -226,7 +226,7 @@ function App() {
 
             <p>Your Score: {score}</p>
 
-            <p>Press Space to Restart</p>
+            <p>Press Space to Restart the game</p>
 
             <button
               onClick={(e) => {
