@@ -284,3 +284,102 @@ body {
     transform: translateX(-50%) translateY(-30px);
   }
 }
+
+@media (max-width: 900px) {
+  .game-container {
+    padding: 15px;
+  }
+
+  .game-container h1 {
+    font-size: 34px;
+  }
+
+  .tagline {
+    font-size: 15px;
+  }
+
+  .top-bar {
+    width: 100%;
+    max-width: 850px;
+    font-size: 16px;
+    padding: 12px 15px;
+    gap: 10px;
+  }
+
+  .game-box {
+    width: 100%;
+    max-width: 850px;
+    height: 320px;
+     touch-action: manipulation;
+  }
+
+  .player {
+    left: 50px;
+    width: 110px;
+  }
+
+  .obstacle {
+    font-size: 45px;
+  }
+
+  .overlay h2 {
+    font-size: 32px;
+  }
+
+  .overlay p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .game-container h1 {
+    font-size: 28px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: center;
+    font-size: 17px;
+  }
+
+  .game-box {
+    height: 280px;
+  }
+
+  .player {
+    left: 30px;
+    width: 85px;
+    bottom: 55px;
+  }
+
+  .dino-player {
+    width: 90px;
+  }
+
+  .obstacle {
+    bottom: 58px;
+    font-size: 38px;
+  }
+
+  .sun-moon {
+    font-size: 34px;
+    right: 25px;
+  }
+
+  .cloud {
+    font-size: 28px;
+  }
+
+  .controls {
+    font-size: 15px;
+  }
+
+  .funny-message {
+    width: 90%;
+    font-size: 14px;
+  }
+
+  .start-dino {
+    width: 110px;
+  }
+}
