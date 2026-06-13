@@ -22,13 +22,18 @@ function App() {
   const [lives, setLives] = useState(3);
   const [showLifeMessage, setShowLifeMessage] = useState(false);
 
-  const speed = 10 + Math.floor(score / 5) * 2;
+  const isMobile = window.innerWidth <= 600;
+  const speed = isMobile
+    ? 7 + Math.floor(score / 5) * 1.5
+    : 10 + Math.floor(score / 5) * 2;
   const isNight = score >= 10;
 
   const playSound = (soundName) => {
     const audio = new Audio(`/sounds/${soundName}.wav`);
     audio.volume = 0.5;
-    audio.play();
+    audio.play().catch(() => {
+      // Browser blocked sound before user interaction
+    });
   };
 
   const jump = () => {
@@ -56,6 +61,7 @@ function App() {
     setIsJumping(false);
     setIsPaused(false);
     setLives(3);
+    setShowLifeMessage(false);
   };
 
   useEffect(() => {
@@ -123,10 +129,17 @@ function App() {
   useEffect(() => {
     if (!isStarted || gameOver || isPaused) return;
 
+    const isMobile = window.innerWidth <= 600;
+
     const playerBottom = isJumping ? 180 : 58;
 
+    const collisionStart = isMobile ? 35 : 70;
+    const collisionEnd = isMobile ? 100 : 165;
+
     const isCollision =
-      obstacleLeft > 70 && obstacleLeft < 165 && playerBottom < 100;
+      obstacleLeft > collisionStart &&
+      obstacleLeft < collisionEnd &&
+      playerBottom < 100;
 
     if (isCollision) {
       setObstacleLeft(850);
